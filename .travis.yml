@@ -4,7 +4,7 @@ services:
 
 before_install:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - docker build -t dockertrainingarun/wmmicroimage -f ./webmethods/Dockerfile.dev
+    - docker build -t dockertrainingarun/wmmicroimage -f ./webmethods/Dockerfile.dev .
 
 install:
     - docker run --rm -d -p 2323:5555/tcp dockertrainingarun/wmmicroimage
@@ -18,7 +18,7 @@ script:
     - docker run -t postman/newman_ubuntu1404 run "https://www.getpostman.com/collections/7a621e2f033748c005a1"
 
 after_success:
-    - docker build -t dockertrainingarun/ngnixwmcustom -f ./nginx/Dockerfile.dev
+    - docker build -t dockertrainingarun/ngnixwmcustom -f ./nginx/Dockerfile.dev .
 
 #push image to docker hub
     - docker push dockertrainingarun/wmmicroimage:latest

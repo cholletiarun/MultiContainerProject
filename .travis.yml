@@ -19,6 +19,9 @@ script:
 
 after_success:
     - docker build -t dockertrainingarun/ngnixwmcustom -f ./nginx/Dockerfile.dev .
+#tag the images built
+    - docker tag dockertrainingarun/ngnixwmcustom dockertrainingarun/ngnixwmcustom:v1
+    - docker tag dockertrainingarun/wmmicroimage dockertrainingarun/wmmicroimage:v1
 
 #push image to docker hub
     - docker push dockertrainingarun/wmmicroimage:v1

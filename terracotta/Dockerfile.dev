@@ -1,0 +1,5 @@
+#Speciify Base Image.
+FROM store/softwareag/terracotta-server:10.5
+
+#switch user to root
+USER root

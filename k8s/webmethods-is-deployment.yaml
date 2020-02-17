@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webmethods-is-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: webmethods-is
+  template:
+    metadata:
+      labels:
+        component: webmethods-is
+    spec:
+      containers:
+      - name: wmis
+        image: dockertrainingarun/wmmicroimage:v1
+        env:
+          - name: MYSQL_HOST
+            value: mysql-clusterip-service
+        ports:
+          - containerPort: 5555

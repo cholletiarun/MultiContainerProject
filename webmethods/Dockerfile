@@ -25,3 +25,6 @@ RUN mkdir /home/temppacks \
 #change owner of the directory
 RUN cd /opt \
  && chown -R sagadmin:sagadmin softwareag
+
+#switch user to root
+USER sagadmin

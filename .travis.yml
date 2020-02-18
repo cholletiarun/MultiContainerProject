@@ -4,7 +4,7 @@ services:
 
 before_install:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - docker build -t dockertrainingarun/wmmicroimage -f ./webmethods/Dockerfile.dev .
+    - docker build -t dockertrainingarun/wmmicroimage -f ./webmethods/Dockerfile .
 
 install:
     - docker run --rm -d -p 2323:5555/tcp dockertrainingarun/wmmicroimage

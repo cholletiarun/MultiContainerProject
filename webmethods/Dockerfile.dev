@@ -14,10 +14,12 @@ ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
 RUN mkdir /home/tempjars \
  && cd /home/tempjars \
  && git clone https://github.com/cholletiarun/adapterjars.git \
+ && chown -R sagadmin:sagadmin adapterjars 
  && cp -r /home/tempjars/adapterjars/* /opt/softwareag/IntegrationServer/lib/jars
 
 #COPY  packages /sag/IntegrationServer/instances/default/packages/
 RUN mkdir /home/temppacks \
  && cd /home/temppacks \
  && git clone https://github.com/cholletiarun/packages.git \
+ && chown -R sagadmin:sagadmin packages
  && cp -r /home/temppacks/packages/* /opt/softwareag/IntegrationServer/packages

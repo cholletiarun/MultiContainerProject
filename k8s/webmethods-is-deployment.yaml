@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: wmis
-        image: dockertrainingarun/wm10customimage:v1
+        image: dockertrainingarun/wm10customimage:v2
         env:
           - name: MYSQL_HOST
             value: mysql-clusterip-service

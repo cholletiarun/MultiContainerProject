@@ -7,7 +7,7 @@ before_install:
     - docker build -t dockertrainingarun/wm10customimage -f ./webmethods/Dockerfile .
 
 install:
-    - docker run --rm -d -p 2323:5555/tcp dockertrainingarun/wmmicroimage
+    - docker run --rm -d -p 2323:5555/tcp dockertrainingarun/wm10customimage
     - docker ps
 
 before_script:
@@ -21,8 +21,8 @@ after_success:
     - docker build -t dockertrainingarun/ngnixwmcustom -f ./nginx/Dockerfile.dev .
 #tag the images built
     - docker tag dockertrainingarun/ngnixwmcustom dockertrainingarun/ngnixwmcustom:v1
-    - docker tag dockertrainingarun/wm10customimage dockertrainingarun/wm10customimage:v1
+    - docker tag dockertrainingarun/wm10customimage dockertrainingarun/wm10customimage:v2
 
 #push image to docker hub
-    - docker push dockertrainingarun/wm10customimage:v1
+    - docker push dockertrainingarun/wm10customimage:v2
     - docker push dockertrainingarun/ngnixwmcustom:v1

@@ -1,5 +1,5 @@
 #Speciify Base Image.
-FROM store/softwareag/webmethods-microservicesruntime:10.5
+FROM dockertrainingarun/wm10dockerbaseimage:latest
 
 #switch user to root
 USER root
@@ -21,10 +21,3 @@ RUN mkdir /home/temppacks \
  && cd /home/temppacks \
  && git clone https://github.com/cholletiarun/packages.git \
  && cp -r /home/temppacks/packages/* /opt/softwareag/IntegrationServer/packages
-
-#change owner of the directory
-RUN cd /opt \
- && chown -R sagadmin:sagadmin softwareag
-
-#switch user to root
-USER sagadmin
